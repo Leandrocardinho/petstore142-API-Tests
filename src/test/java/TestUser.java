@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import io.restassured.response.Response;
 
@@ -12,6 +15,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasLength;
 import static org.hamcrest.Matchers.is;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class) // Order de prioridade a cada test
 public class TestUser {
 
     // 2.1 atributos
@@ -25,10 +29,9 @@ public class TestUser {
         return new String(Files.readAllBytes(Paths.get(arquivoJson)));
        
     }
-
-    
-@Test
-    public static String testLogin(){
+   
+@Test @Order(1)
+    public static String testLogin(){     //testLogin e extração de toten
         //Configura 
         String username = "MaxDog";
         String password = "123457588";
@@ -59,7 +62,7 @@ public class TestUser {
     }
 
 
-@Test
+@Test   @Order(2)
     public void testPostUser() throws IOException{
         // carregar os dados do arquivo json do user
         String jsonBody = lerArquivoJson("src/test/resources/json/UserJson/userPost.json");
@@ -85,4 +88,5 @@ public class TestUser {
         ;    
 
     }
+
 }

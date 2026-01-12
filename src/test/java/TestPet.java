@@ -5,8 +5,10 @@
 
 // 2-   classe
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -15,11 +17,12 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Locale.Category;
+
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class) // Order de prioridade a cada test
 public class TestPet {
     // 2.1 atributos
 
@@ -177,8 +180,8 @@ public class TestPet {
         pet.status = status1; // status inicial usado no Post "available"
         
 
-        //Criar um json para o Body ser enviado a partir da classe Pet e do Csv
-        Gson gson = new Gson(); //intancia a clase Gson como Objeto gson
+        //Criar um json para o Body ser enviado apartir da classe Pet e do Csv
+        Gson gson = new Gson(); //intancia a classe Gson como Objeto gson
         String jsonBody = gson.toJson(pet);
 
         given()
