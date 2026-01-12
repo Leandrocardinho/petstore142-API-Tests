@@ -107,7 +107,7 @@ public class TestStore {
          boolean complete
 
     ) //fim de parametros 
-    { // inicio co codigo testPostDDT
+    { // inicio do codigo testPostDDT
 
         StoreDDT store = new StoreDDT(); //instanciando a classe Store
 
