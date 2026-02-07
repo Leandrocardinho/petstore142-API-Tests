@@ -27,6 +27,9 @@ O projeto realiza automação de testes de API do Swagger Petstore, com foco em:
 - Validação de respostas da API (status code, body, headers)
 - Uso de arquivos de massa (CSV/JSON) para testes parametrizados
 
+- Video testes rodando
+ https://www.loom.com/share/1c0721d75eff4e56ae39ef8306dfb261
+
 - ## Como rodar os testes
 
 1. Clone o repositório:
